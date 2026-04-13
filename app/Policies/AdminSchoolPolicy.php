@@ -2,65 +2,71 @@
 
 namespace App\Policies;
 
-use App\Models\AdminSchool;
-use App\Models\User;
-use Illuminate\Auth\Access\Response;
+use Illuminate\Foundation\Auth\User as AuthUser;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AdminSchoolPolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
-    public function viewAny(User $user): bool
+    use HandlesAuthorization;
+    
+    public function viewAny(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('ViewAny:AdminSchool');
     }
 
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(User $user, AdminSchool $adminSchool): bool
+    public function view(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('View:AdminSchool');
     }
 
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
+    public function create(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('Create:AdminSchool');
     }
 
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, AdminSchool $adminSchool): bool
+    public function update(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('Update:AdminSchool');
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, AdminSchool $adminSchool): bool
+    public function delete(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('Delete:AdminSchool');
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, AdminSchool $adminSchool): bool
+    public function deleteAny(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('DeleteAny:AdminSchool');
     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, AdminSchool $adminSchool): bool
+    public function restore(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('Restore:AdminSchool');
     }
+
+    public function forceDelete(AuthUser $authUser): bool
+    {
+        return $authUser->can('ForceDelete:AdminSchool');
+    }
+
+    public function forceDeleteAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('ForceDeleteAny:AdminSchool');
+    }
+
+    public function restoreAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('RestoreAny:AdminSchool');
+    }
+
+    public function replicate(AuthUser $authUser): bool
+    {
+        return $authUser->can('Replicate:AdminSchool');
+    }
+
+    public function reorder(AuthUser $authUser): bool
+    {
+        return $authUser->can('Reorder:AdminSchool');
+    }
+
 }
