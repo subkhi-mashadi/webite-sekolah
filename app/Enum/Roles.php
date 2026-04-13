@@ -5,8 +5,8 @@ namespace App\Enum;
 enum Roles: string
 {
     case Superadmin = 'superadmin';
-    case Admin = 'admin Sekolah';
-    case KepalaSekolah = 'kepala Sekolah';
+    case Admin = 'admin sekolah';
+    case KepalaSekolah = 'kepala sekolah';
 
     public function label(): string
     {
