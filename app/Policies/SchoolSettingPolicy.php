@@ -1,65 +1,74 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Policies;
 
 use App\Models\SchoolSetting;
-use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Foundation\Auth\User as AuthUser;
 
 class SchoolSettingPolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
-    public function viewAny(User $user): bool
+    use HandlesAuthorization;
+
+    public function viewAny(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('ViewAny:SchoolSetting');
     }
 
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(User $user, SchoolSetting $schoolSetting): bool
+    public function view(AuthUser $authUser, SchoolSetting $schoolSetting): bool
     {
-        return true;
+        return $authUser->can('View:SchoolSetting');
     }
 
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
+    public function create(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('Create:SchoolSetting');
     }
 
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, SchoolSetting $schoolSetting): bool
+    public function update(AuthUser $authUser, SchoolSetting $schoolSetting): bool
     {
-        return true;
+        return $authUser->can('Update:SchoolSetting');
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, SchoolSetting $schoolSetting): bool
+    public function delete(AuthUser $authUser, SchoolSetting $schoolSetting): bool
     {
-        return true;
+        return $authUser->can('Delete:SchoolSetting');
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, SchoolSetting $schoolSetting): bool
+    public function deleteAny(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('DeleteAny:SchoolSetting');
     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, SchoolSetting $schoolSetting): bool
+    public function restore(AuthUser $authUser, SchoolSetting $schoolSetting): bool
     {
-        return true;
+        return $authUser->can('Restore:SchoolSetting');
+    }
+
+    public function forceDelete(AuthUser $authUser, SchoolSetting $schoolSetting): bool
+    {
+        return $authUser->can('ForceDelete:SchoolSetting');
+    }
+
+    public function forceDeleteAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('ForceDeleteAny:SchoolSetting');
+    }
+
+    public function restoreAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('RestoreAny:SchoolSetting');
+    }
+
+    public function replicate(AuthUser $authUser, SchoolSetting $schoolSetting): bool
+    {
+        return $authUser->can('Replicate:SchoolSetting');
+    }
+
+    public function reorder(AuthUser $authUser): bool
+    {
+        return $authUser->can('Reorder:SchoolSetting');
     }
 }

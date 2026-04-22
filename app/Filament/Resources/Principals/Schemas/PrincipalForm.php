@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\AdminSchools\Schemas;
+namespace App\Filament\Resources\Principals\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-class AdminSchoolForm
+class PrincipalForm
 {
     public static function configure(Schema $schema): Schema
     {

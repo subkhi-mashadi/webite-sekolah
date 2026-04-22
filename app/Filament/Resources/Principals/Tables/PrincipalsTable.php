@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\AdminSchools\Tables;
+namespace App\Filament\Resources\Principals\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -9,7 +9,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
-class AdminSchoolsTable
+class PrincipalsTable
 {
     public static function configure(Table $table): Table
     {

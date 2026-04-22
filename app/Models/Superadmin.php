@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Enum\Roles;
 
-class AdminSchool extends User
+class Superadmin extends User
 {
     protected $table = 'users';
 
@@ -22,12 +22,12 @@ class AdminSchool extends User
 
     protected static function booted(): void
     {
-        static::addGlobalScope('school_admin', function ($query) {
-            $query->role(Roles::SchoolAdmin->value);
+        static::addGlobalScope('superadmin', function ($query) {
+            $query->role(Roles::Superadmin->value);
         });
 
         static::created(function (self $model) {
-            $model->assignRole(Roles::SchoolAdmin->value);
+            $model->assignRole(Roles::Superadmin->value);
         });
     }
 }

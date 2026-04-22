@@ -18,7 +18,13 @@ class SchoolSettingResource extends Resource
 {
     protected static ?string $model = SchoolSetting::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Cog8Tooth;
+
+    protected static ?string $navigationLabel = 'Pengaturan Sekolah';
+
+    protected static ?string $modelLabel = 'Pengaturan Sekolah';
+
+    protected static ?string $pluralModelLabel = 'Pengaturan Sekolah';
 
     public static function form(Schema $schema): Schema
     {

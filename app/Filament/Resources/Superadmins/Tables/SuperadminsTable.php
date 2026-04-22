@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\AdminSchools\Tables;
+namespace App\Filament\Resources\Superadmins\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -9,21 +9,21 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
-class AdminSchoolsTable
+class SuperadminsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name')
+                    ->label('Nama')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('email')
                     ->searchable()
                     ->sortable(),
                 ToggleColumn::make('is_active')
-                    ->label('Active'),
+                    ->label('Aktif'),
             ])
             ->filters([
                 //

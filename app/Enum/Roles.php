@@ -5,15 +5,15 @@ namespace App\Enum;
 enum Roles: string
 {
     case Superadmin = 'superadmin';
-    case Admin = 'admin Sekolah';
-    case KepalaSekolah = 'kepala Sekolah';
+    case SchoolAdmin = 'school_admin';
+    case Principal = 'principal';
 
     public function label(): string
     {
         return match ($this) {
             self::Superadmin => 'Superadmin',
-            self::Admin => 'Admin Sekolah',
-            self::KepalaSekolah => 'Kepala Sekolah',
+            self::SchoolAdmin => 'School Admin',
+            self::Principal => 'Principal',
         };
     }
 
