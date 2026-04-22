@@ -20,6 +20,12 @@ class AdminSchoolResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $navigationLabel = 'Admin Sekolah';
+
+    protected static ?string $modelLabel = 'Admin Sekolah';
+
+    protected static ?string $pluralModelLabel = 'Admin Sekolah';
+
     public static function form(Schema $schema): Schema
     {
         return AdminSchoolForm::configure($schema);

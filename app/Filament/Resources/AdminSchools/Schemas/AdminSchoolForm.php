@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\AdminSchools\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class AdminSchoolForm
@@ -12,7 +13,7 @@ class AdminSchoolForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->label('Nama')
+                    ->label('Name')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('email')
@@ -23,8 +24,11 @@ class AdminSchoolForm
                 TextInput::make('password')
                     ->label('Password')
                     ->password()
-                    ->required(fn($record): bool => $record === null)
-                    ->dehydrated(fn(?string $state): bool => filled($state)),
+                    ->required(fn ($record): bool => $record === null)
+                    ->dehydrated(fn (?string $state): bool => filled($state)),
+                Toggle::make('is_active')
+                    ->label('Active')
+                    ->default(true),
             ]);
     }
 }

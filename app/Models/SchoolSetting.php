@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class SchoolSetting extends Model implements HasMedia
 {
-    use InteractsWithMedia;
+    use InteractsWithMedia, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -29,7 +30,7 @@ class SchoolSetting extends Model implements HasMedia
     ];
 
     protected $casts = [
-        'social_media' => 'array'
+        'social_media' => 'array',
     ];
 
     public function registerMediaCollections(): void
